@@ -6,14 +6,9 @@ package rocks.zipcodewilmington.tictactoe;
 public class Board {
     char player1 = 'X';
     char player2 = 'O';
-    public Board(Character[][] matrix) {
-        matrix = new Character[3][3];
-        Character ch = '1';
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++){
-                matrix[i][j] = ch++;
-            }
-        }
+    Character[][] board;
+    public Board(Character[][] board) {
+        this.board = board;
     }
 
     public Boolean isInFavorOfX() {
@@ -29,7 +24,32 @@ public class Board {
     }
 
     public String getWinner() {
+        if(board[0][0].equals('O') && board[0][1].equals('O') && board[0][2].equals('O')){
+            return "O";
+        }
+        if(board[1][0].equals('X') && board[1][1].equals('X') && board[1][2].equals('X')){
+            return "X";
+        }
+        if(board[2][0].equals('O') && board[2][1].equals('O') && board[2][2].equals('O')){
+            return "O";
+        }
+        if(board[0][0].equals('X') && board[1][0].equals('X') && board[2][0].equals('X')){
+            return "X";
+        }
+        if(board[0][1].equals('O') && board[1][1].equals('O') && board[2][1].equals('O')){
+            return "O";
+        }
+        if(board[0][2].equals('X') && board[1][2].equals('X') && board[2][2].equals('X')){
+            return "X";
+        }
+        if(board[0][0].equals('O') && board[1][1].equals('O') && board[2][2].equals('O')){
+            return "O";
+        }
+        if(board[2][0].equals('X') && board[1][1].equals('X') && board[0][2].equals('X')){
+            return "X";
+        }
         return null;
     }
+
 
 }
